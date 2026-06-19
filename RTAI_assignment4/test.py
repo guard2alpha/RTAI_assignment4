@@ -1,4 +1,7 @@
-# 
+# Model: SimpleMLP (784 -> 64 -> ReLU -> 10) trained on MNIST
+# Dataset: MNIST test set (50 samples)
+# Verification property: L-inf robustness with epsilon=0.03
+# Verifier: α,β-Crown (alpha-beta-CROWN)
 
 import subprocess
 import sys
