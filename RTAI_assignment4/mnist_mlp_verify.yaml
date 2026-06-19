@@ -1,0 +1,27 @@
+# α,β-Crown verification config for MNIST MLP model
+# Model: SimpleMLP (784 -> 64 -> ReLU -> 10), trained on MNIST
+# Property: L-inf robustness with epsilon=0.03
+
+general:
+  device: cuda  # Use GPU (RTX 4060Ti)
+
+model:
+  onnx_path: ../../my_mlp.onnx  # Path to ONNX model (relative to complete_verifier/)
+
+data:
+  dataset: MNIST              # Built-in MNIST test set
+  mean: [0.1307]              # MNIST normalization mean
+  std: [0.3081]               # MNIST normalization std
+  num_outputs: 10             # Number of classes
+  start: 0                    # Start index
+  end: 50                     # Verify 50 samples for speed comparison
+
+specification:
+  norm: .inf                  # L-inf norm perturbation
+  epsilon: 0.03               # Perturbation radius (3/255 ~ 0.03)
+
+solver:
+  batch_size: 64
+
+bab:
+  timeout: 30                 # 30 seconds timeout per instance
