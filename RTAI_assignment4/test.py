@@ -1,13 +1,4 @@
-"""
-test.py - Demonstrates running α,β-Crown on a SimpleMLP MNIST model.
-
-Model: SimpleMLP (784 -> 64 -> ReLU -> 10)
-Dataset: MNIST
-Verification property: L-inf robustness with epsilon=0.03
-
-Usage:
-    python test.py
-"""
+# 
 
 import subprocess
 import sys
